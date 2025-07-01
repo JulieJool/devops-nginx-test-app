@@ -28,7 +28,7 @@ jobs:
           push: true
           tags: |
             ${{ secrets.DOCKERHUB_USERNAME }}/devops-nginx-test-app:${{ github.ref_name }}
-            ${{ secrets.DOCKERHUB_USERNAME }}/devops-nginx-test-app:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/devops-nginx-test-app:new
 
   deploy-to-kubernetes:
     needs: build-and-push
@@ -63,4 +63,4 @@ jobs:
 
       - name: Deploy to Kubernetes
         run: |
-          kubectl set image deployment/nginx-test-app nginx-test-app=juliejool/devops-nginx-test-app:latest -n test-app
+          kubectl set image deployment/nginx-test-app nginx-test-app=juliejool/devops-nginx-test-app:new -n test-app
