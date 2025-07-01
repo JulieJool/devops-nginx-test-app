@@ -27,8 +27,7 @@ jobs:
           context: .
           push: true
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/nginx-app:${{ github.ref_name }}
-            ${{ secrets.DOCKERHUB_USERNAME }}/nginx-app:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/devops-nginx-test-app:${{ github.ref_name }}
 
   deploy-to-kubernetes:
     needs: build-and-push
